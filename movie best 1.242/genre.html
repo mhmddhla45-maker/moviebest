@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>التصنيفات — Movie Best</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="/assets/favicon/mask-icon.svg" color="#e11d2a">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+</head>
+<body>
+
+<header class="site-header scrolled">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Movie Best">
+      <span class="brand-logo">
+        <svg viewBox="0 0 120 72" aria-hidden="true">
+          <g class="logo-reel"><circle cx="34" cy="40" r="26" fill="#e11d2a"/><circle cx="34" cy="21" r="6" fill="#0a0a0f"/><circle cx="34" cy="59" r="6" fill="#0a0a0f"/><circle cx="15" cy="40" r="6" fill="#0a0a0f"/><circle cx="53" cy="40" r="6" fill="#0a0a0f"/><circle cx="34" cy="40" r="2.8" fill="#0a0a0f"/></g>
+          <rect x="62" y="30" width="50" height="34" rx="4" fill="#e11d2a"/>
+          <g class="logo-clapper"><path d="M62 18 L112 8 L112 24 L62 30 Z" fill="#e11d2a"/><path d="M68 17 L80 14.6 L80 28 L68 29.4 Z" fill="#0a0a0f"/><path d="M86 13.4 L98 11 L98 25.8 L86 27.2 Z" fill="#0a0a0f"/><path d="M104 9.8 L110 8.6 L110 24.2 L104 25 Z" fill="#0a0a0f"/></g>
+        </svg>
+      </span>
+      <span class="brand-text" dir="ltr">MOVIE <em>BEST</em></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#latest">أحدث</a>
+      <a href="index.html#series">مسلسلات</a>
+      <a href="index.html#movies">أفلام</a>
+      <a href="genre.html" class="active">تصنيفات</a>
+    </nav>
+    <div class="search-box">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="searchInput" type="search" placeholder="ابحث..." autocomplete="off" aria-label="بحث">
+    </div>
+  </div>
+</header>
+
+<main class="container" style="padding-block:20px 70px">
+  <div data-ad="genre-top"></div>
+  <div id="app"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">
+        <span class="brand-logo">
+          <svg viewBox="0 0 120 72" aria-hidden="true">
+            <g class="logo-reel"><circle cx="34" cy="40" r="26" fill="#e11d2a"/><circle cx="34" cy="21" r="6" fill="#0a0a0f"/><circle cx="34" cy="59" r="6" fill="#0a0a0f"/><circle cx="15" cy="40" r="6" fill="#0a0a0f"/><circle cx="53" cy="40" r="6" fill="#0a0a0f"/><circle cx="34" cy="40" r="2.8" fill="#0a0a0f"/></g>
+            <rect x="62" y="30" width="50" height="34" rx="4" fill="#e11d2a"/>
+            <g class="logo-clapper"><path d="M62 18 L112 8 L112 24 L62 30 Z" fill="#e11d2a"/><path d="M68 17 L80 14.6 L80 28 L68 29.4 Z" fill="#0a0a0f"/><path d="M86 13.4 L98 11 L98 25.8 L86 27.2 Z" fill="#0a0a0f"/><path d="M104 9.8 L110 8.6 L110 24.2 L104 25 Z" fill="#0a0a0f"/></g>
+          </svg>
+        </span>
+        <span class="brand-text" dir="ltr">MOVIE <em>BEST</em></span>
+      </a>
+      <p>منصتك الأولى لمشاهدة الأفلام والمسلسلات.</p>
+    </div>
+    <div class="footer-links"><h4>تصفح</h4><a href="index.html#latest">أحدث</a><a href="index.html#series">مسلسلات</a><a href="index.html#movies">أفلام</a><a href="genre.html">تصنيفات</a></div>
+    <div class="footer-links"><h4>معلومات</h4><a href="privacy.html">سياسة الخصوصية</a><a href="terms.html">شروط الاستخدام</a><a href="dmca.html">DMCA</a><a href="contact.html">اتصل بنا</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© <span id="year"></span> Movie Best. جميع الحقوق محفوظة.</span></div>
+</footer>
+
+<script src="/assets/js/social.js"></script>
+<script src="/assets/js/ads.js"></script>
+<script src="/assets/js/data.js"></script>
+<script>
+(function(){
+  'use strict';
+  const params = new URLSearchParams(location.search);
+  const genre = params.get('g');
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const app = document.getElementById('app');
+
+  if (!genre) {
+    const counts = {};
+    DATA.forEach(item => {
+      (item.genres || []).forEach(g => { counts[g] = (counts[g] || 0) + 1; });
+    });
+    const allGenres = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+
+    let html = '<div class="genre-grid">';
+    allGenres.forEach(g => {
+      html += `
+        <a href="/genre?g=${encodeURIComponent(g)}" class="genre-tile">
+          <span class="genre-tile-name">${esc(g)}</span>
+          <span class="genre-tile-count"><b>${counts[g]}</b> عمل</span>
+        </a>
+      `;
+    });
+    html += '</div>';
+    app.innerHTML = html;
+    document.title = 'التصنيفات — Movie Best';
+  } else {
+    const items = DATA.filter(x => (x.genres || []).includes(genre));
+    const seriesMap = new Map();
+    const movies = [];
+    items.forEach(x => {
+      if (x.type === 'series') {
+        const existing = seriesMap.get(x.name);
+        if (!existing || (Number(x.season) || 1) < (Number(existing.season) || 1) ||
+            ((Number(x.season) || 1) === (Number(existing.season) || 1) && (Number(x.episode) || 1) < (Number(existing.episode) || 1))) {
+          seriesMap.set(x.name, x);
+        }
+      } else { movies.push(x); }
+    });
+    const series = [...seriesMap.values()].sort((a,b) => (Number(b.year)||0) - (Number(a.year)||0));
+    movies.sort((a,b) => (Number(b.year)||0) - (Number(a.year)||0));
+
+    function cardHTML(item) {
+      const badge = item.type === "series"
+        ? `<span class="card-badge">الحلقة ${item.episode || 1}</span>`
+        : `<span class="card-badge">${item.year || ''}</span>`;
+      const seriesLabel = item.type === "series" && item.name
+        ? `<span class="card-series">${esc(item.name)}</span>` : "";
+      return `
+        <article class="card" data-type="${item.type}" data-id="${item.id}">
+          <a class="card-link" href="/watch/${encodeURIComponent(item.id)}">
+            <div class="card-media">
+              ${badge}
+              <span class="card-quality">${esc(item.quality || '')}</span>
+              <img src="${esc(item.image || '')}" alt="${esc(item.title)}" loading="lazy">
+              <div class="card-play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span></div>
+            </div>
+            <div class="card-body">
+              ${seriesLabel}
+              <h3 class="card-title">${esc(item.title)}</h3>
+              <div class="card-meta">
+                <span class="card-star">★ ${esc(item.rating || "—")}</span>
+                <span class="sep"></span>
+                <span>${esc(item.year || '')}</span>
+              </div>
+            </div>
+          </a>
+          <button class="fav-btn" data-fav-id="${item.id}" title="إضافة للمفضلة" aria-label="إضافة للمفضلة" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </article>`;
+    }
+
+    let html = `
+      <div class="section-head">
+        <div>
+          <h2 class="section-title"><span class="bar"></span> ${esc(genre)}</h2>
+          <p class="section-sub">${items.length} عمل · ${series.length} مسلسل · ${movies.length} فيلم</p>
+        </div>
+        <a href="genre.html" class="chip" style="padding:8px 16px">← كل التصنيفات</a>
+      </div>
+      ${series.length ? `<section class="section"><div class="section-head"><h3 class="section-title"><span class="bar"></span> مسلسلات (${series.length})</h3></div><div class="grid">${series.map(cardHTML).join('')}</div></section>` : ''}
+      ${movies.length ? `<section class="section"><div class="section-head"><h3 class="section-title"><span class="bar"></span> أفلام (${movies.length})</h3></div><div class="grid">${movies.map(cardHTML).join('')}</div></section>` : ''}
+      ${!items.length ? '<div class="empty-state"><div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div><h3>لا يوجد محتوى في هذا التصنيف</h3><p><a href="genre.html">تصفح كل التصنيفات</a></p></div>' : ''}
+    `;
+    app.innerHTML = html;
+    document.title = `${genre} — Movie Best`;
+    if (window.MB) MB.Favorites.updateButtons();
+  }
+
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const q = searchInput.value.trim();
+        if (q) location.href = '/search?q=' + encodeURIComponent(q);
+      }
+    });
+  }
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+<script src="/assets/js/header.js"></script>
+<script>
+
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  
+  document.onkeydown = function(e) {
+    if(e.keyCode == 123) { return false; } // F12
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
+  };
+</script>
+</body>
+</html>

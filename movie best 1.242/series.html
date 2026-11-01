@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07070b">
+<title>المسلسل — Movie Best</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="/assets/favicon/mask-icon.svg" color="#e11d2a">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<style>
+.series-hero{position:relative;padding-block:clamp(30px,5vw,50px);margin-bottom:20px;border-radius:22px;overflow:hidden;background:var(--panel);border:1px solid var(--line)}
+.series-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(50px) saturate(1.4);opacity:.3;transform:scale(1.15)}
+.series-hero-vignette{position:absolute;inset:0;background:linear-gradient(to right,rgba(7,7,11,.98) 20%,rgba(7,7,11,.75) 60%,rgba(7,7,11,.4))}
+.series-hero-inner{position:relative;z-index:2;display:flex;gap:clamp(18px,3vw,32px);padding:clamp(20px,3vw,32px);align-items:center;flex-wrap:wrap}
+.series-poster{width:clamp(150px,22vw,220px);aspect-ratio:2/3;border-radius:16px;overflow:hidden;flex-shrink:0;border:1px solid var(--line-strong);box-shadow:0 24px 60px -20px rgba(0,0,0,.9)}
+.series-poster img{width:100% !important;height:100% !important;object-fit:cover !important;display:block}
+.series-info{flex:1;min-width:240px}
+.series-name{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-1px;line-height:1;margin-bottom:12px;background:linear-gradient(180deg,#fff 20%,#b9b9c8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.series-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.series-desc{color:var(--muted);font-size:14px;line-height:1.8;max-width:600px}
+.series-stats{display:flex;gap:20px;margin-top:16px;flex-wrap:wrap}
+.series-stat{display:flex;flex-direction:column;gap:2px}
+.series-stat .n{font-size:22px;font-weight:900;color:var(--gold)}
+.series-stat .l{font-size:11.5px;color:var(--muted);font-weight:600}
+.season-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.season-tab{padding:10px 22px;border-radius:12px;background:var(--panel);border:1px solid var(--line);color:var(--muted);font-weight:700;font-size:14px;cursor:pointer;transition:.2s}
+.season-tab:hover{border-color:rgba(243,194,107,.4);color:var(--text)}
+.season-tab.active{background:linear-gradient(150deg,var(--gold),var(--gold-2));color:#0a0a0f;border-color:transparent;box-shadow:0 12px 28px -12px rgba(243,194,107,.85)}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.ep-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;transition:.25s;position:relative;overflow:hidden}
+.ep-card:hover{border-color:rgba(243,194,107,.45);transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(0,0,0,.9)}
+.ep-card a{display:flex;flex-direction:column;align-items:center;gap:8px;color:inherit}
+.ep-num{width:52px;height:52px;border-radius:50%;background:var(--panel-2);border:2px solid var(--line-strong);display:grid;place-items:center;font-size:20px;font-weight:900;color:var(--gold);transition:.25s}
+.ep-card:hover .ep-num{background:linear-gradient(150deg,var(--gold),var(--gold-2));color:#0a0a0f;border-color:transparent}
+.ep-label{font-size:12px;font-weight:700;color:var(--text)}
+.ep-meta{font-size:10.5px;color:var(--muted)}
+.series-empty{text-align:center;padding:80px 20px;color:var(--muted)}
+.series-empty h2{font-size:22px;font-weight:800;color:var(--text);margin-bottom:10px}
+@media(max-width:640px){
+  .series-hero-inner{flex-direction:column;text-align:center}
+  .series-chips,.series-stats{justify-content:center}
+  .ep-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header scrolled" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Movie Best">
+      <span class="brand-logo">
+        <svg viewBox="0 0 120 72" aria-hidden="true">
+          <g class="logo-reel"><circle cx="34" cy="40" r="26" fill="#e11d2a"/><circle cx="34" cy="21" r="6" fill="#0a0a0f"/><circle cx="34" cy="59" r="6" fill="#0a0a0f"/><circle cx="15" cy="40" r="6" fill="#0a0a0f"/><circle cx="53" cy="40" r="6" fill="#0a0a0f"/><circle cx="34" cy="40" r="2.8" fill="#0a0a0f"/></g>
+          <rect x="62" y="30" width="50" height="34" rx="4" fill="#e11d2a"/>
+          <g class="logo-clapper"><path d="M62 18 L112 8 L112 24 L62 30 Z" fill="#e11d2a"/><path d="M68 17 L80 14.6 L80 28 L68 29.4 Z" fill="#0a0a0f"/><path d="M86 13.4 L98 11 L98 25.8 L86 27.2 Z" fill="#0a0a0f"/><path d="M104 9.8 L110 8.6 L110 24.2 L104 25 Z" fill="#0a0a0f"/></g>
+        </svg>
+      </span>
+      <span class="brand-text" dir="ltr">MOVIE <em>BEST</em></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#latest">أحدث</a>
+      <a href="index.html#series">مسلسلات</a>
+      <a href="index.html#movies">أفلام</a>
+      <a href="genre.html">تصنيفات</a>
+    </nav>
+    <div class="search-box">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="searchInput" type="search" placeholder="ابحث..." autocomplete="off" aria-label="بحث">
+    </div>
+  </div>
+</header>
+
+<main class="container" style="padding-block:30px 70px" id="app">
+  <div id="loading" style="text-align:center;padding:60px;color:var(--muted)">جاري التحميل...</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">
+        <span class="brand-logo">
+          <svg viewBox="0 0 120 72" aria-hidden="true">
+            <g class="logo-reel"><circle cx="34" cy="40" r="26" fill="#e11d2a"/><circle cx="34" cy="21" r="6" fill="#0a0a0f"/><circle cx="34" cy="59" r="6" fill="#0a0a0f"/><circle cx="15" cy="40" r="6" fill="#0a0a0f"/><circle cx="53" cy="40" r="6" fill="#0a0a0f"/><circle cx="34" cy="40" r="2.8" fill="#0a0a0f"/></g>
+            <rect x="62" y="30" width="50" height="34" rx="4" fill="#e11d2a"/>
+            <g class="logo-clapper"><path d="M62 18 L112 8 L112 24 L62 30 Z" fill="#e11d2a"/><path d="M68 17 L80 14.6 L80 28 L68 29.4 Z" fill="#0a0a0f"/><path d="M86 13.4 L98 11 L98 25.8 L86 27.2 Z" fill="#0a0a0f"/><path d="M104 9.8 L110 8.6 L110 24.2 L104 25 Z" fill="#0a0a0f"/></g>
+          </svg>
+        </span>
+        <span class="brand-text" dir="ltr">MOVIE <em>BEST</em></span>
+      </a>
+      <p>منصتك الأولى لمشاهدة الأفلام والمسلسلات.</p>
+    </div>
+    <div class="footer-links"><h4>تصفح</h4><a href="index.html#latest">أحدث</a><a href="index.html#series">مسلسلات</a><a href="index.html#movies">أفلام</a><a href="genre.html">تصنيفات</a></div>
+    <div class="footer-links"><h4>معلومات</h4><a href="privacy.html">سياسة الخصوصية</a><a href="terms.html">شروط الاستخدام</a><a href="dmca.html">DMCA</a><a href="contact.html">اتصل بنا</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© <span id="year"></span> Movie Best. جميع الحقوق محفوظة.</span></div>
+</footer>
+
+<script src="/assets/js/social.js"></script>
+<script src="/assets/js/ads.js"></script>
+<script src="/assets/js/data.js"></script>
+<script>
+(function(){
+  'use strict';
+  const params = new URLSearchParams(location.search);
+  const requestedName = params.get('name');
+  const requestedId = params.get('id');
+  const requestedSeason = parseInt(params.get('season'), 10) || 0;
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  let seriesName = requestedName;
+  if (requestedId && !seriesName) {
+    const found = DATA.find(x => x.id === requestedId);
+    if (found) seriesName = found.name;
+  }
+
+  if (!seriesName) {
+    document.getElementById('loading').innerHTML = `
+      <div class="series-empty">
+        <h2>🔍 لم يتم تحديد مسلسل</h2>
+        <p>اذهب إلى <a href="index.html#series" style="color:var(--gold);text-decoration:underline">قائمة المسلسلات</a> واختر مسلسلاً.</p>
+      </div>`;
+    return;
+  }
+
+  const seriesEntries = DATA.filter(x => x.type === 'series' && x.name === seriesName);
+  if (!seriesEntries.length) {
+    document.getElementById('loading').innerHTML = `
+      <div class="series-empty">
+        <h2>😕 المسلسل "${esc(seriesName)}" غير موجود</h2>
+        <p>تأكد من الاسم أو <a href="index.html#series" style="color:var(--gold);text-decoration:underline">تصفح المسلسلات</a>.</p>
+      </div>`;
+    return;
+  }
+
+  const seasons = [...new Set(seriesEntries.map(x => Number(x.season) || 1))].sort((a,b) => a-b);
+  const activeSeason = requestedSeason && seasons.includes(requestedSeason) ? requestedSeason : seasons[0];
+  const rep = seriesEntries.slice().sort((a,b) => (a.season||1) - (b.season||1) || (a.episode||1) - (b.episode||1))[0];
+  const totalEpisodes = seriesEntries.length;
+  const genresSet = new Set();
+  seriesEntries.forEach(x => (x.genres || []).forEach(g => genresSet.add(g)));
+  const genres = [...genresSet];
+  const seasonEpisodes = seriesEntries
+    .filter(x => (Number(x.season) || 1) === activeSeason)
+    .sort((a,b) => (a.episode||1) - (b.episode||1));
+
+  const html = `
+    <section class="series-hero">
+      <div class="series-hero-bg" style="background-image:url('${esc(rep.image)}')"></div>
+      <div class="series-hero-vignette"></div>
+      <div class="series-hero-inner">
+        <div class="series-poster"><img src="${esc(rep.image)}" alt="${esc(rep.name)}" onerror="this.style.display='none'"></div>
+        <div class="series-info">
+          <h1 class="series-name">${esc(rep.name)}</h1>
+          <div class="series-chips">
+            ${rep.year ? `<span class="chip chip-gold">${esc(rep.year)}</span>` : ''}
+            ${rep.quality ? `<span class="chip">${esc(rep.quality)}</span>` : ''}
+            ${rep.rating ? `<span class="chip chip-rating">★ ${esc(rep.rating)}</span>` : ''}
+            ${genres.slice(0, 4).map(g => `<a href="/genre?g=${encodeURIComponent(g)}" class="chip">${esc(g)}</a>`).join('')}
+          </div>
+          <p class="series-desc">${esc(rep.description || '')}</p>
+          <div class="series-stats">
+            <div class="series-stat"><span class="n">${seasons.length}</span><span class="l">${seasons.length === 1 ? 'موسم' : 'مواسم'}</span></div>
+            <div class="series-stat"><span class="n">${totalEpisodes}</span><span class="l">حلقة</span></div>
+            <div class="series-stat"><span class="n">${(seriesEntries[0].servers || []).length}</span><span class="l">سيرفرات</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    ${seasons.length > 1 ? `
+      <div class="season-tabs">
+        ${seasons.map(s => `<button type="button" class="season-tab ${s === activeSeason ? 'active' : ''}" data-season="${s}">الموسم ${s}</button>`).join('')}
+      </div>
+    ` : ''}
+
+    <div class="ep-grid" id="epGrid">
+      ${seasonEpisodes.map(ep => `
+        <div class="ep-card">
+          <a href="/watch/${encodeURIComponent(ep.id)}">
+            <div class="ep-num">${ep.episode || '?'}</div>
+            <div class="ep-label">الحلقة ${ep.episode || '?'}</div>
+            <div class="ep-meta">${esc(ep.quality || '')}</div>
+          </a>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  const app = document.getElementById('app');
+  app.innerHTML = html;
+
+  app.addEventListener('click', e => {
+    const btn = e.target.closest('.season-tab');
+    if (!btn) return;
+    const season = Number(btn.dataset.season);
+    app.querySelectorAll('.season-tab').forEach(b => b.classList.toggle('active', Number(b.dataset.season) === season));
+    const eps = seriesEntries
+      .filter(x => (Number(x.season) || 1) === season)
+      .sort((a,b) => (a.episode||1) - (b.episode||1));
+    document.getElementById('epGrid').innerHTML = eps.map(ep => `
+      <div class="ep-card">
+        <a href="/watch/${encodeURIComponent(ep.id)}">
+          <div class="ep-num">${ep.episode || '?'}</div>
+          <div class="ep-label">الحلقة ${ep.episode || '?'}</div>
+          <div class="ep-meta">${esc(ep.quality || '')}</div>
+        </a>
+      </div>
+    `).join('');
+    if (history.replaceState) {
+      const url = new URL(location.href);
+      url.searchParams.set('season', season);
+      history.replaceState(null, '', url);
+    }
+  });
+
+  document.title = `${seriesName} — Movie Best`;
+
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const q = searchInput.value.trim();
+        if (q) location.href = '/search?q=' + encodeURIComponent(q);
+      }
+    });
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+<script src="/assets/js/header.js"></script>
+<script>
+
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  
+  document.onkeydown = function(e) {
+    if(e.keyCode == 123) { return false; } // F12
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
+  };
+</script>
+</body>
+</html>

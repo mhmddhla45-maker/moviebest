@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الصفحة غير موجودة — Movie Best</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="/assets/favicon/mask-icon.svg" color="#e11d2a">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<style>
+.err-wrap{min-height:75vh;display:grid;place-items:center;text-align:center;padding:40px 20px}
+.err-code{font-size:clamp(80px,18vw,180px);font-weight:900;line-height:.9;letter-spacing:-6px;background:linear-gradient(180deg,#fff 20%,#b9b9c8);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}
+.err-title{font-size:clamp(20px,3vw,28px);font-weight:800;margin-bottom:10px}
+.err-desc{color:var(--muted);font-size:15px;max-width:480px;margin:0 auto 30px}
+.err-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header class="site-header scrolled">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Movie Best">
+      <span class="brand-logo">
+        <svg viewBox="0 0 120 72" aria-hidden="true">
+          <g class="logo-reel"><circle cx="34" cy="40" r="26" fill="#e11d2a"/><circle cx="34" cy="21" r="6" fill="#0a0a0f"/><circle cx="34" cy="59" r="6" fill="#0a0a0f"/><circle cx="15" cy="40" r="6" fill="#0a0a0f"/><circle cx="53" cy="40" r="6" fill="#0a0a0f"/><circle cx="34" cy="40" r="2.8" fill="#0a0a0f"/></g>
+          <rect x="62" y="30" width="50" height="34" rx="4" fill="#e11d2a"/>
+          <g class="logo-clapper"><path d="M62 18 L112 8 L112 24 L62 30 Z" fill="#e11d2a"/><path d="M68 17 L80 14.6 L80 28 L68 29.4 Z" fill="#0a0a0f"/><path d="M86 13.4 L98 11 L98 25.8 L86 27.2 Z" fill="#0a0a0f"/><path d="M104 9.8 L110 8.6 L110 24.2 L104 25 Z" fill="#0a0a0f"/></g>
+        </svg>
+      </span>
+      <span class="brand-text" dir="ltr">MOVIE <em>BEST</em></span>
+    </a>
+    <nav class="main-nav" aria-label="التنقل الرئيسي">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#latest">أحدث</a>
+      <a href="index.html#series">مسلسلات</a>
+      <a href="index.html#movies">أفلام</a>
+      <a href="genre.html">تصنيفات</a>
+    </nav>
+  </div>
+</header>
+
+<main class="err-wrap">
+  <div>
+    <div class="err-code">404</div>
+    <h1 class="err-title">الصفحة غير موجودة</h1>
+    <p class="err-desc">يبدو أن الرابط الذي تبحث عنه قد حُذف أو لم يوجد قط. لا تقلق — يمكنك العودة للرئيسية أو تصفح المحتوى.</p>
+    <div class="err-actions">
+      <a href="index.html" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/></svg>
+        الرئيسية
+      </a>
+      <a href="index.html#series" class="btn btn-ghost">تصفح المسلسلات</a>
+      <a href="index.html#movies" class="btn btn-ghost">تصفح الأفلام</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Movie Best. جميع الحقوق محفوظة.</span>
+  </div>
+</footer>
+
+<script src="/assets/js/social.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="/assets/js/header.js"></script>
+<script>
+
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  
+  document.onkeydown = function(e) {
+    if(e.keyCode == 123) { return false; } // F12
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
+  };
+</script>
+</body>
+</html>
